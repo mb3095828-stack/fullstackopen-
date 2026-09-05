@@ -30,61 +30,7 @@ import { useState } from "react"
     <p>Number of exercises {props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises}</p>
   )
 }
-// testing-------------------------------------------
- /*   const Timer=()=>{
-      const [time,setTime]=useState(0)
-      setTimeout(()=>{
-        setTime(time+1)
-      },1000)
-        console.log('reading...' + time)
-      return <p>{time}</p>
-    }
-      */
-     /*const Handler=()=>{
-      const [counter,setCounter]=useState(0)
-       return <button onClick={()=>{setCounter(counter+1)}}>COUNTER ...{counter}</button>
-     }
-       */
-      const Test=()=>{
 
-        const [clicked, setClicked]=useState({
-          lift:0,
-          right:0
-        })
-        const [allClicked,setAllClicked]=useState([])
-
-        const handleClickedLift=()=>{
-            console.log("clicked on lift")
-            setAllClicked(allClicked.concat('L'))
-          setClicked({
-            ...clicked,
-            lift: clicked.lift+1
-          })
-        console.log(allClicked)
-        }
-        const handleClickedright=()=>{
-            console.log("clicked on right")
-            setAllClicked(allClicked.concat('R'))
-            setClicked({
-              ...clicked,
-              right: clicked.right+1
-            })
-        console.log(allClicked)
-        }
-        
-        return(
-          <>
-          <div>
-            <h1>{allClicked.join('')}</h1>
-            <button onClick={handleClickedLift} >LIFT: {clicked.lift}</button>
-            <button onClick={handleClickedright} >RIGHT: {clicked.right}</button>
-          </div>
-          </>
-        )
-
-      }
-      
-     // outTesting----------------------------------------------------
 const App = (props) => {
   const course ={
    name: 'Half Stack application development',
@@ -106,8 +52,6 @@ const App = (props) => {
      <Header name={course.name} />
      <Content parts={course.parts}/>
      <Total parts={course.parts} />
-     <Test />
-
     </div>
   )
 }
