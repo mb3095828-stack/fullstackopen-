@@ -7,6 +7,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
     "build:ui": "@powerShell Remove-Item -Recurse -Force dist && cd ../../part2/phonebook/phonebook && npm run build && @powerShell Copy-Item dist -Recurse ../../../part3/phonebook-backend",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push",
     "start": "node phonebook-backend.js",
@@ -19,5 +20,11 @@
     "express": "^5.2.1",
     "mongoose": "^9.10.0",
     "morgan": "^1.12.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "eslint": "^10.10.0",
+    "globals": "^17.12.0"
   }
 }

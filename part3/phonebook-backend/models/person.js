@@ -10,30 +10,30 @@ console.log(url,PORT)
 mongoose.connect(url,{ family:4 })
 
 const personSchema=new mongoose.Schema({
-    name:{
-        type:String,
-        minLength:3,
-        required: true
-    },
-    number:{
+  name:{
+    type:String,
+    minLength:3,
+    required: true
+  },
+  number:{
     type: String,
     minLength: 8,
     validate: {
-        validator: 
+      validator:
             function (value){
-                return /^\d{2,3}-\d+$/.test(value)
+              return /^\d{2,3}-\d+$/.test(value)
             },
-            message: props=> `${props.value} is not a valid phone number `
+      message: props => `${props.value} is not a valid phone number `
     }
-}})
+  } })
 
 personSchema.set('toJSON',{
-    transform: (document,retrunObject)=>{
-        retrunObject.id=retrunObject._id.toString()
+  transform: (document,retrunObject) => {
+    retrunObject.id=retrunObject._id.toString()
 
-        delete retrunObject._id
-        delete retrunObject.__v
-    }
+    delete retrunObject._id
+    delete retrunObject.__v
+  }
 })
 
 const Person=mongoose.model('Person',personSchema)
