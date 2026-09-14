@@ -7,13 +7,17 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
+    "build:ui": "@powerShell Remove-Item -Recurse -Force dist && cd ../../part2/phonebook/phonebook && npm run build && @powerShell Copy-Item dist -Recurse ../../../part3/phonebook-backend",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push",
     "start": "node phonebook-backend.js",
     "dev": "node --watch phonebook-backend.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "mongoose": "^9.10.0",
     "morgan": "^1.12.0"
   }
 }
